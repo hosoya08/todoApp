@@ -1,28 +1,32 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { View, Text, ScrollView, Image, TextInput } from 'react-native';
+import Cat from './src/components/Cat';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <ScrollView>
+      <Text>some text</Text>
+      <View>
+        <Text>some text in view</Text>
+        <Image
+        source={{
+          uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
+        }}
+        style={{ width: 200, height: 200}}
+        />
+      </View>
+      <TextInput
+      style={{
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+      }}
+      defaultValue='You can type in me'
+      />
+
+      <Cat age={10} name='tomCat'/>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
